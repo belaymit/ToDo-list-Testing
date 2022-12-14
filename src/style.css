@@ -94,6 +94,7 @@ a {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
+
 .task-form {
   display: flex;
   justify-content: space-between;
@@ -137,6 +138,7 @@ a {
   align-items: center;
   height: 8vh;
 }
+
 .todos {
   position: relative;
   height: 50px;
@@ -207,6 +209,7 @@ a {
 }
 
 input[type="checkbox"] {
+  /* stylelint-disable-next-line csstree/validator */
   accent-color: rgb(22, 74, 117);
 }
 
