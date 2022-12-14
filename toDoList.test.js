@@ -1,56 +1,57 @@
-const addToDo = require('./src/modules/addTodoTask.js');
-const removeToDO = require('./src/modules/removeToDo.js');
+/*
+* @jest-environment jsdom
+*/
+const addTodoTask = require('./src/modules/addTodoTask.js');
+const removeToDo = require('./src/modules/removeToDo.js');
 
-describe('add and remove', () => {
-  test('add to do', () => {
-    const todoList = {
-      description: 'something',
+describe('todo functions - ADD & REMOVE', () => {
+  test('add a todo', () => {
+    const todo = {
+      description: 'test',
       completed: false,
       index: 0,
     };
-    const dataItem = [];
+    const todoList = [];
 
-    const output = addToDo(todoList, dataItem);
-    expect(dataItem).toEqual(output);
+    const result = addTodoTask(todo, todoList);
+    expect(todoList).toEqual(result);
+    localStorage.setItem('toDoListItem', JSON.stringify(result));
 
-    localStorage.setItem(todoList).JSON.stringify(output);
-    expect(JSON.parse(localStorage.getItem(todoList))).toEqual(output);
-
-    for (let i = 0; i < todoList.length; i += 1) {
-      document.body.innerHTML = '<div class = "list-item">'
+    expect(JSON.parse(localStorage.getItem('toDoListItem'))).toEqual(result);
+    for (let i = 0; i < result.length; i += 1) {
+      document.body.innerHTML += '<div class="list-item">'
       + '  <ul id="list"><li></li></ul>'
       + '</div>';
     }
-    const listItem = document.querySelectorAll('.list-item');
-    expect(listItem).toHaveLength(output.length);
+    const list = document.querySelectorAll('.list-item');
+    expect(list).toHaveLength(result.length);
   });
 
-  test('remove to do', () => {
+  test('delete an item', () => {
     const todoList = [
       {
-        description: 'something 1',
-      completed: false,
-      index: 0,
+        desc: 'one',
+        completed: false,
+        index: 0,
       },
       {
-        description: 'something 2',
-      completed: false,
-      index: 1,
+        desc: 'two',
+        completed: false,
+        index: 1,
       },
     ];
-    const i =0;
-    const output = removeToDO(i,todoList);
-    expect(output).toEqual([{description: 'something 2', completed: false, index: 1}]);
-
-    localStorage.setItem(todoList).JSON.stringify(output);
-    expect(JSON.parse(localStorage.getItem(todoList))).toEqual(output);
-
-    for (let i = 0; i < todoList.length; i += 1) {
-      document.body.innerHTML = '<div class = "list-item">'
+    const i = 0;
+    const output = removeToDo(i, todoList);
+    expect(output).toEqual([{ desc: 'two', completed: false, index: 1 }]);
+    localStorage.setItem('toDoListItem', JSON.stringify(output));
+    expect(JSON.parse(localStorage.getItem('toDoListItem'))).toEqual(output);
+    document.body.innerHTML = '';
+    for (let i = 0; i < output.length; i += 1) {
+      document.body.innerHTML += '<div class="list-item">'
       + '  <ul id="list"><li></li></ul>'
       + '</div>';
     }
-    const listItem = document.querySelectorAll('.list-item');
-    expect(listItem).toHaveLength(output.length);
-  })
+    const list = document.querySelectorAll('.list-item');
+    expect(list).toHaveLength(output.length);
   });
+});
