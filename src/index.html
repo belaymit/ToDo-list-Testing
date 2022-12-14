@@ -20,7 +20,7 @@
       crossorigin="anonymous"
     ></script>
     <script defer src="index.js"></script>
-    <title>To-do-List: Testing</title>
+    <title>To-do-List-ES6: Testing</title>
   </head>
   <body>
     <!-- TO do section header text -->
@@ -29,16 +29,21 @@
         <h1>Today's To Do</h1>
         <i class="fa-solid fa-arrows-rotate"></i>
       </div>
-      <!-- form section -->
+      <!-- <input type="text" class="todo-input" placeholder="  Add to your list..."> -->
       <form class="task-form" action="">
-        <input type="text" id="todo" placeholder="Add to your list..." />
+        <input type="text" class="todo-input" id="todo" placeholder="Add to your list..." />
         <button id="add-todo" type="button">
           <i class="fa-solid fa-arrow-left-long"></i>
         </button>
       </form>
+
+      <!-- <div class="todo-list">
+      </div> -->
       <ul id="todoList"></ul>
-      <button class="clearCompleted" type="button">Clear all completed</button>
-      <p class="notification">Please check</p>
-    </section>
+      <button class="clear-button clear-border" type="button">Clear all completed</button>
+  </section>
+  
+    <script src="../dist/main.js"></script>
+    <script src="./toDoList.test.js"></script>
   </body>
 </html>
