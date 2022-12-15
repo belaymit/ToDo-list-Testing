@@ -81,7 +81,7 @@ describe('todo functions CHECK, UPDATE and CLEAR ', () => {
       },
     ];
     const output = clearAll(todos);
-    expect(output).toEqual([{desc: 'first', completed: false, index: 1,}]);
+    expect(output).toEqual([{ desc: 'first', completed: false, index: 1 }]);
 
     localStorage.setItem('toDoItem', JSON.stringify(output));
     expect(JSON.parse(localStorage.getItem('toDoItem'))).toEqual(output);
