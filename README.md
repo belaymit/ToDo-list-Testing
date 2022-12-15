@@ -204,8 +204,7 @@ You can deploy this project using:
 👤 **Glenda Diaz**
 
 - GitHub: [@githubhandle](https://github.com/Gdiazdiaz)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- LinkedIn: [LinkedIn](www.linkedin.com/in/glendadiazz)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
